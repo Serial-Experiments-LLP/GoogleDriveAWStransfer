@@ -16,6 +16,8 @@ from datetime import datetime
 
 from googleapiclient.http import MediaIoBaseDownload
 
+import requests
+
 logfile = open("logfile"+datetime.today().strftime('%Y-%m-%d-%H_%M_%S')+".txt", "w+")#logfile to pick up any download errors
 
 S3_BUCKET = input('Enter the S3 bucket for transfer: ')#takes the Google URL
