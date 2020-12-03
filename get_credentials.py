@@ -8,6 +8,36 @@ from oauth2client import tools
 
 from oauth2client.file import Storage
 
+import httplib2
+
+"""
+
+  In order to run this script you need python3 and pip3 installed.
+
+  You also need some additional python modules. Please run
+
+    sudo pip3 install httplib2
+
+    sudo pip3 install --upgrade google-api-python-client
+
+
+
+  To authenticate in Google follow the instructions at
+
+  https://developers.google.com/drive/v3/web/quickstart/python
+
+  A credentials.json file needs to placed in the same directory
+
+  with this script. The link above contains the instruction on
+
+  how to obtain this file. Once you complete these steps run
+
+    python3 this_script.py --noauth_local_webserver
+
+  and follow the instructions
+
+"""
+
 
 # If modifying these scopes, delete your previously saved credentials
 
