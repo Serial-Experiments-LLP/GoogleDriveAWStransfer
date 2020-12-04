@@ -21,6 +21,7 @@ import requests
 logfile = open("logfile"+datetime.today().strftime('%Y-%m-%d-%H_%M_%S')+".txt", "w+")#logfile to pick up any download errors
 
 S3_BUCKET = input('Enter the S3 bucket for transfer: ')#takes the Google URL
+S3_PATH = input('Input S3 path to folder for upload e.g. (Test/): ')
 
 def downloadFileList(files):
     """downloads files based on Google ID and holds them in memory, then transfers to S3 bucket. Picks up mimetype of files,
@@ -195,7 +196,7 @@ def s3Upload(fh,filename,Google_Modified_Date, Google_Created_Date, Google_Paren
         Google_MD5 = 'No MD5 as this file is a converted Google Doc'
     Google_Parent_ID = ', '.join(Google_Parent_ID)
     s3.Bucket(S3_BUCKET).put_object(
-        Key="{}{}".format('Test/', filename),
+        Key="{}{}".format(S3_PATH, filename),
         Body=fh.getvalue(),
         Metadata={'Google-Last-Modified-Date': Google_Modified_Date, 'Google-Created-Date': Google_Created_Date, 'Google-MimeType': mimeType, 'Google-MD5': Google_MD5, 'Google-ID': ID, 'Google-Parent-ID': Google_Parent_ID}
     )
