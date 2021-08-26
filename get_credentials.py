@@ -68,14 +68,17 @@ def get_credentials():
 
     home_dir = os.path.expanduser('~')
 
-    credential_dir = os.path.join(home_dir, '.credentials2')
+    # credential_dir = os.path.join(home_dir, '.credentials2')
+    credential_dir = 'credentials/'
 
-    if not os.path.exists(credential_dir):
-        os.makedirs(credential_dir)
+    # if not os.path.exists(credential_dir):
+    #     os.makedirs(credential_dir)
 
-    credential_path = os.path.join(credential_dir,
+    # credential_path = os.path.join(credential_dir,
 
-                                   'drive-python-quickstart.json')
+    #                                'drive-python-quickstart.json')
+
+    credential_path = 'credentials/credentials.json'
 
     store = Storage(credential_path)
 
