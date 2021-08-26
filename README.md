@@ -1,3 +1,24 @@
+# Important Disclaimer
+
+v0.5 of the code was tested with a sample folder on Google Drive. We are yet to test this on real data that needs to be transferred.
+
+It is highly recommended that you test this script with a sample folder of your own to know what this code does before you use it to transfer your actual files.
+
+**Do not use this script without fully understanding what it does. Your files might be at risk. We are not responsible for any data loss**
+
+# What has been changed?
+
+The original script (v0.0) was not preserving the Google Drive folder structure after transfering data to S3. We have made the changes to get this missing functionality (v0.5)
+
+
+# Setup Notes
+
+After cloning this repo, create a folder called 'credentials' and save your client_secret.json file in it. This will change to a more secure method in a future release.
+
+Notes beyond this are exactly what the original author had written in his repo.
+
+________________________________________________________________________________
+
 # GoogleDriveAWStransfer (Currently a test script)
 Script to use Google Drive API to collect files and metadata and move to an S3 bucket
 
