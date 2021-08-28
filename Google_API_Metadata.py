@@ -121,6 +121,5 @@ def get_file_list(): #runs over each folder generating file list, for files over
                 break
     files = pd.DataFrame(file_list,columns=['file_name', 'checksum_md5', 'mimeType', 'size', 'date_created', 'date_last_modified', 'google_id', 'google_parent_id', 'trashed'])
     files.drop(files[files['trashed'] == True].index, inplace=True)  # removes files which have True listed in trashed, these are files which had been moved to the recycle bin
-    print(files)
-    print('Starting file transfer')
+    print(f'Starting file transfer. Total files to be transferred: {len(files)}')
     Google_AWS_Download.downloadFileList(files)
