@@ -33,7 +33,6 @@ def get_root_folder(folder_id, folder_name_list): #get's folder list from origin
 
     else:
         for folder in folders:
-            print(folder)
             folder_name = folder['name']
             id = folder.get('id')
             temp_dict = {'id':id,'folder_name':folder_name}
@@ -77,9 +76,7 @@ def merge(folder_name_list, root_folder_dict): #merges sub folder list with full
 
 
 def get_file_list(): #runs over each folder generating file list, for files over 1000 uses nextpagetoken to run additional requests, picks up metadata included in the request
-    print(full_list)
     for folder in full_list:
-        print(folder)
         folder_id = folder['id']
         folder_name = folder['folder_name']
         credentials = get_credentials.get_credentials()
@@ -123,7 +120,6 @@ def get_file_list(): #runs over each folder generating file list, for files over
             if page_token is None:
                 break
     files = pd.DataFrame(file_list,columns=['file_name', 'checksum_md5', 'mimeType', 'size', 'date_created', 'date_last_modified', 'google_id', 'google_parent_id', 'trashed'])
-    files.to_pickle('checking.pkl')
     files.drop(files[files['trashed'] == True].index, inplace=True)  # removes files which have True listed in trashed, these are files which had been moved to the recycle bin
-    print('Starting file transfer')
+    print(f'Starting file transfer. Total files to be transferred: {len(files)}')
     Google_AWS_Download.downloadFileList(files)
